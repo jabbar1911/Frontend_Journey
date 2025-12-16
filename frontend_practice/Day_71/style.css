@@ -1,0 +1,113 @@
+/* ================= GLOBAL ================= */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+/* Header */
+.header {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+/* Main Box */
+.box {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background-color: lightgray;
+}
+
+/* Headings */
+.frontend, .backend {
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+/* Info Section */
+.info {
+    padding: 20px;
+}
+
+.device-text {
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    margin: 40px 0;
+}
+
+.footer a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+/* ================= MEDIA QUERIES ================= */
+
+/* 📱 Mobile (max-width: 576px) */
+@media (max-width: 576px) {
+    .box {
+        background-color: green;
+        flex-direction: column;
+    }
+
+    .device-text::after {
+        content: " Mobile View (max-width: 576px)";
+    }
+}
+
+/* 📱 Small Tablets (577px – 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .box {
+        background-color: lightblue;
+        display: flex;
+    }
+
+    .backend {
+        display: none;
+    }
+
+    .device-text::after {
+        content: " Small Tablet View (577px – 768px)";
+    }
+}
+
+/* 📱 Large Tablets (769px – 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .box {
+        background-color: lightcoral;
+    }
+
+    .device-text::after {
+        content: " Large Tablet View (769px – 992px)";
+    }
+}
+
+/* 💻 Laptops (993px – 1200px) */
+@media (min-width: 993px) and (max-width: 1200px) {
+    .box {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .device-text::after {
+        content: " Laptop View (993px – 1200px)";
+    }
+}
+
+/* 🖥 Large Desktops (1201px and above) */
+@media (min-width: 1201px) {
+    .box {
+        background-color: lightgreen;
+    }
+
+    .device-text::after {
+        content: " Desktop View (1201px and above)";
+    }
+}

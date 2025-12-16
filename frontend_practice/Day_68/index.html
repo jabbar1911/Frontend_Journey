@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Day 68 – CSS Pseudo & Positioning Live Examples</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">CSS Lab</div>
+        <ul class="nav-links">
+            <li><a href="#pseudo-classes">Pseudo-Classes</a></li>
+            <li><a href="#pseudo-elements">Pseudo-Elements</a></li>
+            <li><a href="#positioning">Positioning</a></li>
+            <li><a href="#form">Form</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENT -->
+    <section class="content">
+
+        <!-- ================= PSEUDO CLASSES ================= -->
+        <div class="section" id="pseudo-classes">
+            <h2>CSS Pseudo-Classes (Live Examples)</h2>
+
+            <p>
+                <b>Pseudo-classes</b> are used to style elements based on their
+                <b>state or user interaction</b>. They help make web pages interactive
+                without using JavaScript.
+            </p>
+
+            <h3>:hover</h3>
+            <p>
+                <b>What:</b> Applies styles when the mouse is placed over an element.<br>
+                <b>Why:</b> Shows that an element is clickable.
+            </p>
+
+            <div class="demo-box">
+                <a href="#pseudo-classes" class="demo-btn">Hover Me</a>
+                <a href="#pseudo-classes" class="demo-btn">Hover Me Too</a>
+            </div>
+
+            <h3>:active & :visited</h3>
+            <p>
+                <b>:active</b> works while clicking an element.<br>
+                <b>:visited</b> styles links that were already opened.
+            </p>
+
+            <div class="demo-box">
+                <a href="#pseudo-classes" class="demo-btn">Click Me</a>
+                <a href="#pseudo-classes" class="demo-btn">Visited Link</a>
+            </div>
+
+            <h3>:nth-child()</h3>
+            <p>
+                Styles elements based on their position inside a parent.
+                The second item below is styled differently.
+            </p>
+
+            <ul class="list">
+                <li>First Item</li>
+                <li>Second Item (:nth-child)</li>
+                <li>Third Item</li>
+            </ul>
+        </div>
+
+        <!-- ================= PSEUDO ELEMENTS ================= -->
+        <div class="section" id="pseudo-elements">
+            <h2>CSS Pseudo-Elements (Live Examples)</h2>
+
+            <p>
+                <b>Pseudo-elements</b> allow styling specific parts of content
+                without modifying HTML structure.
+            </p>
+
+            <ul>
+                <li><b>::first-letter</b> – styles first letter</li>
+                <li><b>::selection</b> – styles selected text</li>
+                <li><b>::before / ::after</b> – inserts decorative content</li>
+            </ul>
+
+            <p class="para">
+                cascading style sheets help us design clean and interactive web pages.
+                Select this text to see the selection effect.
+            </p>
+
+            <p class="note">
+                Stars around the logo are created using <b>::before</b> and <b>::after</b>.
+            </p>
+        </div>
+
+        <!-- ================= POSITIONING ================= -->
+        <div class="section" id="positioning">
+            <h2>CSS Positioning (Live Examples)</h2>
+
+            <p>
+                CSS positioning controls where elements appear on the page.
+                Different positioning types are used together in real projects.
+            </p>
+
+            <ul>
+                <li><b>position: sticky</b> → Navbar stays on top while scrolling</li>
+                <li><b>position: relative</b> → Content card positioning</li>
+                <li><b>position: absolute</b> → “CSS” watermark inside card</li>
+                <li><b>z-index</b> → Controls layer order</li>
+            </ul>
+        </div>
+
+        <!-- ================= FORM ================= -->
+        <div class="section" id="form">
+            <h2>Form – :focus & ::placeholder</h2>
+
+            <p>
+                <b>:focus</b> applies styles when input is selected.<br>
+                <b>::placeholder</b> styles placeholder text.
+            </p>
+
+            <input type="text" placeholder="Click here to see focus & placeholder">
+        </div>
+
+        <a href="../../index.html"" class="back">⬅ Back to Dashboard</a>
+
+    </section>
+
+</body>
+
+</html>

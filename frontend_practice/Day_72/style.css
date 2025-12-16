@@ -1,0 +1,216 @@
+/* ================= GLOBAL ================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #d9e2ec);
+    color: #333;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* ================= HEADER ================= */
+.header {
+    background: linear-gradient(135deg, #1f2933, #323f4b);
+    color: #fff;
+    padding: 30px 20px;
+}
+
+.header p {
+    color: #cbd2d9;
+}
+
+/* ================= SECTION ================= */
+.section {
+    max-width: 950px;
+    margin: 45px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.section.dark {
+    background: linear-gradient(135deg, #2b2f38, #3a3f4b);
+    color: #f5f7fa;
+}
+
+.section p {
+    max-width: 720px;
+    margin: 0 auto 15px;
+    font-size: 15px;
+    color: #555;
+}
+
+.section.dark p {
+    color: #d3d9e0;
+}
+
+/* ================= TRANSITION DEMO ================= */
+.transition-box {
+    width: 150px;
+    height: 150px;
+    margin: 35px auto;
+    background: linear-gradient(135deg, #4dabf7, #339af0);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.4px;
+    transition: 
+        width 0.5s ease,
+        height 0.5s ease,
+        border-radius 0.5s ease,
+        background 0.6s ease,
+        color 0.4s ease,
+        transform 0.5s ease;
+}
+
+.transition-box:hover {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #845ef7, #5f3dc4);
+    color: #ffd43b;
+    transform: scale(1.08);
+}
+
+/* ================= ANIMATION STAGE ================= */
+.animation-stage {
+    position: relative;
+    height: 320px;
+    margin-top: 35px;
+    padding: 10px;
+    border-radius: 16px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.02)
+    );
+    border: 1px solid rgba(255,255,255,0.18);
+    overflow: hidden;
+}
+
+/* ================= MAIN BALL (BEST VERSION) ================= */
+.animation-box {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    /* Base color */
+    background: linear-gradient(135deg, #ff6b6b, #f06595);
+    border-radius: 16px;
+
+    /* Smooth visual feel */
+    box-shadow: 0 0 20px rgba(240, 101, 149, 0.6);
+
+    /* 🔥 KEY PART */
+    animation: moveBox 7s ease-in-out infinite;
+    transition: 
+        background 0.8s ease,
+        filter 0.8s ease,
+        box-shadow 0.8s ease;
+}
+
+/* ================= MOVEMENT + SOFT COLOR FLOW ================= */
+@keyframes moveBox {
+    0% {
+        transform: translate(0,0) rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        transform: translate(760px,0) rotate(90deg);
+        filter: hue-rotate(60deg);
+    }
+    50% {
+        transform: translate(760px,200px) rotate(180deg);
+        filter: hue-rotate(140deg);
+        border-radius: 50%;
+    }
+    75% {
+        transform: translate(0,200px) rotate(270deg);
+        filter: hue-rotate(220deg);
+    }
+    100% {
+        transform: translate(0,0) rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
+/* ================= BALL BASE ================= */
+.ball {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/* ================= BALL 1 ================= */
+.ball1 {
+    animation: ballOne 9s ease-in-out infinite;
+}
+
+@keyframes ballOne {
+    0%   { transform: translate(0,0); background:hsl(210,90%,65%); }
+    25%  { transform: translate(760px,0); background:hsl(270,85%,70%); }
+    50%  { transform: translate(760px,240px); background:hsl(45,95%,65%); }
+    75%  { transform: translate(0,240px); background:hsl(160,75%,60%); }
+    100% { transform: translate(0,0); background:hsl(210,90%,65%); }
+}
+
+/* ================= BALL 2 ================= */
+.ball2 {
+    animation: ballTwo 11s ease-in-out infinite;
+}
+
+@keyframes ballTwo {
+    0%   { transform: translate(0,240px); background:hsl(25,90%,60%); }
+    25%  { transform: translate(760px,0); background:hsl(350,85%,65%); }
+    50%  { transform: translate(380px,120px); background:hsl(260,80%,65%); }
+    75%  { transform: translate(760px,240px); background:hsl(160,75%,60%); }
+    100% { transform: translate(0,240px); background:hsl(25,90%,60%); }
+}
+
+/* ================= BALL 3 ================= */
+.ball3 {
+    animation: ballThree 8s linear infinite;
+}
+
+@keyframes ballThree {
+    0%   { transform: translate(380px,0); background:hsl(160,75%,60%); }
+    25%  { transform: translate(760px,120px); background:hsl(210,90%,65%); }
+    50%  { transform: translate(380px,240px); background:hsl(45,95%,65%); }
+    75%  { transform: translate(0,120px); background:hsl(350,85%,65%); }
+    100% { transform: translate(380px,0); background:hsl(160,75%,60%); }
+}
+
+/* ================= ICON ================= */
+.spinner {
+    font-size: 64px;
+    margin-top: 25px;
+    color: #495057;
+    animation: spin 1.4s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ================= FOOTER ================= */
+.footer a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1f2933, #323f4b);
+    color: #fff;
+}

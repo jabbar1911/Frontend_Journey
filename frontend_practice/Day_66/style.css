@@ -1,0 +1,10 @@
+.external {
+    color: darkcyan;
+    background-color: lightgray;
+    padding: 5px;
+}
+
+.external-text {
+    color: brown;
+    font-size: 18px;
+}

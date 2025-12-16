@@ -1,0 +1,95 @@
+
+/* Global styles */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin-top: 6px;
+    color: #ccc;
+}
+
+/* Content */
+.content {
+    padding: 20px;
+    background-color: #d9f0ff;
+}
+
+/* Highlight text */
+.highlight {
+    color: #c40000;
+    font-weight: bold;
+}
+
+/* Button */
+button {
+    padding: 10px 18px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Text-style section */
+.text-style {
+    padding: 25px;
+    background-color: #fff4cc;
+    text-align: center;
+}
+
+/* Text effects */
+.upper {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.decor {
+    text-decoration: underline;
+}
+
+.shadow {
+    font-size: 20px;
+    font-style: italic;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Links */
+a {
+    color: #003366;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

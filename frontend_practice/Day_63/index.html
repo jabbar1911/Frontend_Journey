@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Day 63 - Multimedia and Forms</title>
+</head>
+
+<body>
+
+    <h1>Day 63 – Multimedia and Forms in HTML</h1>
+    <p><b>Topic:</b> Audio, Video, iframe and Forms</p>
+
+    <hr>
+
+    <!-- Audio -->
+    <h2>Audio – Online URL</h2>
+    <audio controls>
+        <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3" type="audio/mpeg">
+    </audio>
+    <h2>Audio – Local File</h2>
+    <audio controls>
+        <source src="./sample-audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <p><i>Note:</i> Add a local audio fil e named <b>sample-audio.mp3</b></p>
+
+    <hr>
+
+    <!-- Video -->
+
+    <h2>Video – Online URL</h2>
+    <video width="320" controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    </video>
+
+    <h2>Video – Local File</h2>
+    <video width="320" height="240" controls>
+        <source src="./sample-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <p><i>Note:</i> Add a local video file named <b>sample-video.mp4</b></p>
+
+    <hr>
+
+    <!-- YouTube Embed -->
+    <h2>YouTube Video (iframe)</h2>
+    <iframe width="360" height="215" src="https://www.youtube.com/embed/dD2EISBDjWM" title="YouTube video"
+        allowfullscreen>
+    </iframe>
+
+    <hr>
+
+    <!-- HTML Form -->
+    <h2>HTML Form</h2>
+
+    <form>
+        <label>Full Name:</label><br>
+        <input type="text" placeholder="Enter your name" required>
+        <br><br>
+
+        <label>Email:</label><br>
+        <input type="email" placeholder="Enter your email" required>
+        <br><br>
+
+        <label>Message:</label><br>
+        <textarea placeholder="Enter your message"></textarea>
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <!-- Back link -->
+    <a href="../../index.html"">⬅ Back to Dashboard</a>
+
+</body>
+
+</html>
