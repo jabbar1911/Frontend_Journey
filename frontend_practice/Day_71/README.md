@@ -1,8 +1,7 @@
-# Day 71 - Layout Refinement: Building Better Structures
+# Day 71 - Media Queries & Responsive Design
 
 ## Objective
-Refine my understanding of CSS layouts and create well-structured, organized pages with better visual hierarchy.
-
+To understand how media queries work and how layouts adapt across different screen sizes. The focus was on building a clean structure and refining it for better visual clarity and responsiveness.
 ## Files Included
 - `index.html` – HTML with improved structure
 - `style.css` – CSS with refined layout techniques
