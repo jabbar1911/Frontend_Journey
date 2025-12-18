@@ -5,9 +5,10 @@ To understand how CSS transitions and animations add motion and interactivity to
 
 ## Files Included
 day-72/
-├─ index.html   – Structured HTML demonstrating transitions and animations
-├─ style.css    – CSS for transitions, keyframe animations, and visual effects
-└─ README.md
+├── index.html # Structured HTML demonstrating transitions and animations
+├── style.css # CSS for transitions, keyframe animations, and visual effects
+└── README.md # Project documentation
+
 
 ## Concepts Practiced
 
