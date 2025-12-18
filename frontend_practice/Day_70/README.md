@@ -1,12 +1,22 @@
 # Day 70 - Image Gallery: Layout and Styling
 
 ## Objective
-Create an image gallery that showcases multiple images with CSS styling and a cohesive layout.
+This project is part of my frontend learning journey and focuses on practicing CSS Grid layouts and CSS Transformations. I created an interactive grid layout, applied multiple hover-based image transformation effects, and built a responsive image gallery using modern CSS techniques.
+
+What I built includes a CSS Grid demo with a clean 3×2 layout, Font Awesome search icon integration, six different hover-based image transformation effects, and a fully responsive image gallery created using CSS Grid.
 
 ## Files Included
-- `index.html` – HTML structure for gallery
-- `style.css` – CSS for gallery layout and styling
-- `images/` – Folder with multiple image assets
+Project Folder Structure:
+day-70  
+├─ index.html   → Grid demo, icons, and transformations  
+├─ style.css    → Grid layout and transformation styling  
+├─ img1.jpeg    → Rotate effect image  
+├─ img2.jpeg    → Scale effect image  
+├─ img3.jpeg    → Skew effect image  
+├─ img4.jpeg    → Translate effect image  
+├─ img5.jpg     → TranslateX effect image  
+├─ img6.jpg     → TranslateY effect image  
+└─ README.md    → Project documentation  
 
 ## Concepts Practiced
 
