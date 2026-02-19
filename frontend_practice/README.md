@@ -28,6 +28,10 @@ Each day folder is independent and can be explored individually. Simply open the
 - [Day 71](./Day_71) - Layout Refinement: Building Better Structures
 - [Day 72](./Day_72) - UI Styling: Polishing the Look
 
+**Bootstrap & Responsive Design (Day 76–79)**
+- [Day 76](./Day_76) - Bootstrap Grid: Responsive Breakpoints
+- [Day 77–79](./Day_77_79) - Capstone: Organic E-commerce Store (Bootstrap)
+
 ## Learning Path
 
 The projects are designed to build progressively:
@@ -81,6 +85,13 @@ frontend_practice/
 │   ├── index.html
 │   ├── style.css
 │   └── images/
+├── Day_76/
+│   ├── index.html
+│   └── README.md
+├── Day_77_79/
+│   ├── index.html
+│   ├── README.md
+│   └── assets/
 └── README.md (this file)
 ```
 
@@ -136,6 +147,8 @@ Each project is self-contained and requires no build process:
 | 70 | Layouts | Gallery design with Grid/Flexbox |
 | 71 | Refinement | Hierarchy, spacing, and polish |
 | 72 | UI Styling | Components, buttons, and forms |
+| 76 | Bootstrap Grid | Responsive breakpoints & containers |
+| 77-79 | E-commerce | Multi-section store with Bootstrap |
 
 ## Tips for Learning
 
