@@ -3,186 +3,499 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Frontend Learning Journey | Day 61–81</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Journey | Pro Learning Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #030712;
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-primary: #7c4dff;
+            --accent-secondary: #00e5ff;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(124, 77, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 229, 255, 0.05) 0%, transparent 40%);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(124, 77, 255, 0.1);
+            color: var(--accent-primary);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border: 1px solid rgba(124, 77, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-secondary);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Category Section */
+        .section-header {
+            margin: 60px 0 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .section-header .line {
+            height: 1px;
+            background: var(--border-color);
+            flex-grow: 1;
+        }
+
+        /* Days Grid */
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .day-card {
+            background: var(--card-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 180px;
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.03));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .day-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .day-card:hover::before {
+            opacity: 1;
+        }
+
+        .day-card .day-num {
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .day-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .day-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .day-card .arrow {
+            margin-top: auto;
+            align-self: flex-end;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .day-card:hover .arrow {
+            background: var(--accent-primary);
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 80px 0 40px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 80px;
+        }
+
+        .footer .brand {
+            font-weight: 700;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-row {
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 
-<style>
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        font-family: "Segoe UI", Arial, sans-serif;
-        background: linear-gradient(135deg, #eef2f7, #d9e2ec);
-        color: #333;
-    }
-
-    /* Header */
-    .header {
-        background: linear-gradient(135deg, #1f2933, #323f4b);
-        color: white;
-        text-align: center;
-        padding: 35px 20px;
-    }
-
-    .header p {
-        color: #cbd2d9;
-    }
-
-    /* Main container */
-    .container {
-        max-width: 1100px;
-        margin: 50px auto;
-        padding: 20px;
-    }
-
-    .container h2 {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    /* Grid */
-    .days-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 25px;
-    }
-
-    /* Day cards */
-    .day-card {
-        background-color: white;
-        padding: 25px;
-        border-radius: 14px;
-        text-align: center;
-        text-decoration: none;
-        color: #333;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .day-card h3 {
-        margin-bottom: 8px;
-    }
-
-    .day-card p {
-        font-size: 14px;
-        color: #555;
-    }
-
-    /* Hover effect */
-    .day-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Footer */
-    .footer {
-        text-align: center;
-        padding: 25px;
-        color: #555;
-    }
-</style>
-
 <body>
+    <div class="container">
+        <header class="hero">
+            <span class="badge">Portfolio Ready</span>
+            <h1>Frontend Journey</h1>
+            <p>A comprehensive log of my evolution from HTML basics to advanced JavaScript architecture.</p>
 
-    <header class="header">
-        <h1>My Frontend Learning Journey</h1>
-        <p>Day 61 – Day 79 | HTML • CSS • Responsive Design</p>
-    </header>
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-value">24</span>
+                    <span class="stat-label">Modules</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">61-89</span>
+                    <span class="stat-label">Day Range</span>
+                </div>
+            </div>
+        </header>
 
-    <main class="container">
+        <section>
+            <div class="section-header">
+                <h2>🌐 Web Foundations</h2>
+                <div class="line"></div>
+            </div>
+            <div class="days-grid">
+                <a href="./frontend_practice/Day_61/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 61</span>
+                        <h3>HTML Basics</h3>
+                        <p>Fundamental structure and semantic tags.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_62/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 62</span>
+                        <h3>Lists & Media</h3>
+                        <p>Working with links, lists, and images.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_63/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 63</span>
+                        <h3>Forms & Multimedia</h3>
+                        <p>User input and rich media integration.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_64/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 64</span>
+                        <h3>Git Workflow</h3>
+                        <p>Version control and repository management.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_65/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 65</span>
+                        <h3>Deployment</h3>
+                        <p>Vercel implementation and site push.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_66/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 66</span>
+                        <h3>CSS Core</h3>
+                        <p>Styling fundamentals and box model.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_67/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 67</span>
+                        <h3>Semantic UI</h3>
+                        <p>Advanced semantics and CSS interaction.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_68/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 68</span>
+                        <h3>Pseudo-States</h3>
+                        <p>Pseudo-classes and professional navbars.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_69/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 69</span>
+                        <h3>Flexbox Forms</h3>
+                        <p>Modern layouts and flexible input systems.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_70/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 70</span>
+                        <h3>Grid & Transforms</h3>
+                        <p>Advanced layouts and 2D transformations.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_71/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 71</span>
+                        <h3>Responsive Web</h3>
+                        <p>Media queries and mobile-first logic.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_72/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 72</span>
+                        <h3>Animations</h3>
+                        <p>Transitions and keyframe mastery.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_76/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 76</span>
+                        <h3>Bootstrap</h3>
+                        <p>Grid system and component frameworks.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+        </section>
 
-        <h2>📅 Daily Progress</h2>
+        <section>
+            <div class="section-header">
+                <h2>🚀 Projects & Clone Series</h2>
+                <div class="line"></div>
+            </div>
+            <div class="days-grid">
+                <a href="./frontend_practice/Day_73_75/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 73–75</span>
+                        <h3>Paytm Clone</h3>
+                        <p>Building a high-fidelity fintech UI.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_77_79/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 77–79</span>
+                        <h3>Organic Store</h3>
+                        <p>Refined E-commerce frontend architecture.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+        </section>
 
-        <div class="days-grid">
+        <section>
+            <div class="section-header">
+                <h2>⚡ JavaScript Mastery</h2>
+                <div class="line"></div>
+            </div>
+            <div class="days-grid">
+                <a href="./frontend_practice/Day_80/index.html" class="day-card"
+                    style="border-left: 2px solid var(--accent-primary);">
+                    <div class="card-content">
+                        <span class="day-num">Day 80</span>
+                        <h3>The Beginning</h3>
+                        <p>Entering the world of dynamic logic.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_81/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 81</span>
+                        <h3>Variables</h3>
+                        <p>Scope, let, const, and var depth.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_82/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 82</span>
+                        <h3>JS Datatypes</h3>
+                        <p>Primitive vs Reference type lab.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_83/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 83</span>
+                        <h3>BOM & Logic</h3>
+                        <p>Browser objects and conditional systems.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_84/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 84</span>
+                        <h3>Loops & Patterns</h3>
+                        <p>Algorithmic thinking with nested iterations.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_85_86/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 85-86</span>
+                        <h3>Functions</h3>
+                        <p>Mastering Closures and Hoisting.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_87/index.html" class="day-card">
+                    <div class="card-content">
+                        <span class="day-num">Day 87</span>
+                        <h3>Arrays</h3>
+                        <p>Advanced list processing and Set logic.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_88/index.html" class="day-card"
+                    style="border: 1px solid var(--accent-secondary);">
+                    <div class="card-content">
+                        <span class="day-num">Day 88</span>
+                        <h3>Objects</h3>
+                        <p>Context, methods, and binding.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="./frontend_practice/Day_89/index.html" class="day-card" style="border: 2px solid #f59e0b;">
+                    <div class="card-content">
+                        <span class="day-num">Day 89</span>
+                        <h3>Utility Methods</h3>
+                        <p>Strings, Math, Dates, and OTP generation.</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+        </section>
 
-            <a href="./frontend_practice/Day_61/index.html" class="day-card">
-                <h3>Day 61</h3>
-                <p>HTML Basics</p>
-            </a>
-
-            <a href="./frontend_practice/Day_62/index.html" class="day-card">
-                <h3>Day 62</h3>
-                <p>Lists, Links & Images</p>
-            </a>
-
-            <a href="./frontend_practice/Day_63/index.html" class="day-card">
-                <h3>Day 63</h3>
-                <p>Multimedia & Forms</p>
-            </a>
-
-            <a href="./frontend_practice/Day_64/index.html" class="day-card">
-                <h3>Day 64</h3>
-                <p>Git & GitHub</p>
-            </a>
-
-            <a href="./frontend_practice/Day_65/index.html" class="day-card">
-                <h3>Day 65</h3>
-                <p>Vercel Deployment</p>
-            </a>
-
-            <a href="./frontend_practice/Day_66/index.html" class="day-card">
-                <h3>Day 66</h3>
-                <p>CSS Basics</p>
-            </a>
-
-            <a href="./frontend_practice/Day_67/index.html" class="day-card">
-                <h3>Day 67</h3>
-                <p>Semantic HTML & CSS</p>
-            </a>
-
-            <a href="./frontend_practice/Day_68/index.html" class="day-card">
-                <h3>Day 68</h3>
-                <p>Pseudo-Classes & Navbar</p>
-            </a>
-
-            <a href="./frontend_practice/Day_69/index.html" class="day-card">
-                <h3>Day 69</h3>
-                <p>Flexbox & Forms</p>
-            </a>
-
-            <a href="./frontend_practice/Day_70/index.html" class="day-card">
-                <h3>Day 70</h3>
-                <p>CSS Grid & Transforms</p>
-            </a>
-
-            <a href="./frontend_practice/Day_71/index.html" class="day-card">
-                <h3>Day 71</h3>
-                <p>Media Queries</p>
-            </a>
-
-            <a href="./frontend_practice/Day_72/index.html" class="day-card">
-                <h3>Day 72</h3>
-                <p>Transitions & Animations</p>
-            </a>
-
-            <a href="./frontend_practice/Day_73_75/index.html" class="day-card">
-                <h3>Day 73–75</h3>
-                <p>Paytm Clone – UI Structure</p>
-            </a>
-
-            <a href="./frontend_practice/Day_76/index.html" class="day-card">
-                <h3>Day 76</h3>
-                <p>Bootstrap Grid System</p>
-            </a>
-
-            <a href="./frontend_practice/Day_77_79/index.html" class="day-card">
-                <h3>Day 77–79</h3>
-                <p>Organic E-commerce Store</p>
-            </a>
-
-            <!-- You can continue till Day 81 -->
-
-        </div>
-
-    </main>
-
-    <footer class="footer">
-        <p>Frontend Development Learning Journey</p>
-    </footer>
-
+        <footer class="footer">
+            <p>© 2026 Developed by <a href="https://www.linkedin.com/in/shaik-abdul-jabbar/" target="_blank"><span
+                        class="brand">Shaik Abdul Jabbar </span> </a></p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">Full Stack Journey • Continuous Evolution</p>
+        </footer>
+    </div>
 </body>
 
 </html>

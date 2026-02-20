@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 82 | JS Datatypes Lab</title>
+    <link rel="stylesheet" href="../Day_80/dashboard.css">
+    <style>
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .type-pill {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .type-pill:hover {
+            border-color: var(--accent-secondary);
+            background: rgba(0, 229, 255, 0.05);
+        }
+
+        .highlight {
+            color: var(--accent-secondary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../index.html" class="nav-btn">
+        <span>←</span> Back to Dashboard
+    </a>
+    <div class="dashboard">
+        <div class="header">
+            <span class="badge">Day 82</span>
+            <h1>Datatype Laboratory</h1>
+            <p style="color: var(--text-muted)">Primitives, Reference Types, and Coercion Logic</p>
+        </div>
+
+        <div class="card">
+            <h3>🔬 The Periodic Table of Types</h3>
+            <div class="type-grid">
+                <div class="type-pill">Number</div>
+                <div class="type-pill">String</div>
+                <div class="type-pill">Boolean</div>
+                <div class="type-pill">Null</div>
+                <div class="type-pill">Undefined</div>
+                <div class="type-pill">Symbol</div>
+                <div class="type-pill">BigInt</div>
+                <div class="type-pill" style="border-color: var(--accent-primary)">Object</div>
+                <div class="type-pill" style="border-color: var(--accent-primary)">Array</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>🔗 Equality: Loose (==) vs Strict (===)</h3>
+            <p>Strict equality checks both value and type, while loose equality performs type coercion.</p>
+        </div>
+
+        <div class="card">
+            <h3>❓ Null vs Undefined</h3>
+            <p><strong>Undefined:</strong> A variable has been declared but not assigned a value. <br>
+                <strong>Null:</strong> An intentional absence of any object value.
+            </p>
+        </div>
+
+        <div class="split-view">
+            <div class="code-vault">
+                <div class="code-header">
+                    <span style="font-size: 0.8rem; color: var(--accent-primary)">datatype_lab.js</span>
+                    <div class="dot green"></div>
+                </div>
+                <pre class="code-body">console.log("Day 82: JavaScript Datatypes & Conversions");
+
+// 1. Primitive Datatypes
+let score = 100;
+let userName = "Sairam";
+let isLearning = true;
+let nothing = null;
+let notDefined;
+
+console.log("Number check:", typeof score);
+console.log("String check:", userName);
+console.log("Boolean check:", isLearning);
+console.log("Null check:", typeof nothing, "(Historical JS Bug)");
+console.log("Undefined check:", typeof notDefined);
+
+// 2. Type Conversion (Implicit & Explicit)
+console.log("Type Conversion Lab:");
+console.log("5 + '10' (Concatenation) =", 5 + "10");
+console.log("'10' - 5 (Subtraction) =", "10" - 5);
+console.log("Manual conversion:", Number("50"));
+
+// 3. Reference vs Primitive
+console.log("Reference Type Demonstration:");
+let userArr = ["HTML", "CSS"];
+let myArr = userArr; // Points to same memory
+myArr.push("JS");
+console.log("Original Array updated:", JSON.stringify(userArr));
+
+console.log("Day 82 completed! Fundamentals are strong.");</pre>
+            </div>
+
+            <div class="card" style="margin-top: 0;">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="font-size: 0.8rem; margin-left: 10px; color: var(--text-muted)">terminal.js</span>
+                </div>
+                <div class="terminal-body" id="terminal"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const originalLog = console.log;
+        console.log = function (...args) {
+            originalLog.apply(console, args);
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `<span class="log-prefix">❯</span> ${args.join(' ')}`;
+            terminal.appendChild(entry);
+        };
+
+        console.log("Day 82: JavaScript Datatypes & Conversions");
+
+        // 1. Primitive Datatypes
+        let score = 100;
+        let userName = "Sairam";
+        let isLearning = true;
+        let nothing = null;
+        let notDefined;
+
+        console.log("Number check:", typeof score);
+        console.log("String check:", userName);
+        console.log("Boolean check:", isLearning);
+        console.log("Null check:", typeof nothing, "(Historical JS Bug)");
+        console.log("Undefined check:", typeof notDefined);
+
+        // 2. Type Conversion (Implicit & Explicit)
+        console.log("Type Conversion Lab:");
+        console.log("5 + '10' (Concatenation) =", 5 + "10");
+        console.log("'10' - 5 (Subtraction) =", "10" - 5);
+        console.log("Manual conversion:", Number("50"));
+
+        // 3. Reference vs Primitive
+        console.log("Reference Type Demonstration:");
+        let userArr = ["HTML", "CSS"];
+        let myArr = userArr; // Points to same memory
+        myArr.push("JS");
+        console.log("Original Array updated:", JSON.stringify(userArr));
+
+        console.log("Day 82 completed! Fundamentals are strong.");
+    </script>
+</body>
+
+</html>

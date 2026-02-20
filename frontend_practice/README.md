@@ -32,6 +32,11 @@ Each day folder is independent and can be explored individually. Simply open the
 - [Day 76](./Day_76) - Bootstrap Grid: Responsive Breakpoints
 - [Day 77–79](./Day_77_79) - Capstone: Organic E-commerce Store (Bootstrap)
 
+**JavaScript Fundamentals (Day 80–82)**
+- [Day 80](./Day_80) - JS Intro: Interactivity & Linking
+- [Day 81](./Day_81) - JS Variables: var, let & const
+- [Day 82](./Day_82) - Datatypes & Type Conversions
+
 ## Learning Path
 
 The projects are designed to build progressively:
@@ -43,6 +48,8 @@ The projects are designed to build progressively:
 5. **Multi-page Projects** (Day 67) - Scale up to real websites
 6. **Advanced CSS** (Days 68–69) - Selectors, backgrounds, and visual effects
 7. **Practice Layouts** (Days 70–72) - Galleries, refinement, and UI styling
+8. **Bootstrap Mastery** (Days 76–79) - Framework-based responsive design
+9. **Introduction to JavaScript** (Days 80–82) - Core logic and interactivity
 
 ## Folder Structure
 
@@ -92,6 +99,16 @@ frontend_practice/
 │   ├── index.html
 │   ├── README.md
 │   └── assets/
+├── Day_80/
+│   ├── index.html
+│   ├── one.js
+│   └── README.md
+├── Day_81/
+│   ├── index.html
+│   └── README.md
+├── Day_82/
+│   ├── index.html
+│   └── README.md
 └── README.md (this file)
 ```
 
@@ -149,6 +166,9 @@ Each project is self-contained and requires no build process:
 | 72 | UI Styling | Components, buttons, and forms |
 | 76 | Bootstrap Grid | Responsive breakpoints & containers |
 | 77-79 | E-commerce | Multi-section store with Bootstrap |
+| 80 | JavaScript Intro | Script linking and console logic |
+| 81 | JS Variables | var, let, const and scoping |
+| 82 | Datatypes | Primitives, non-primitives & conversion |
 
 ## Tips for Learning
 
@@ -164,12 +184,14 @@ These day-wise exercises culminate in the **Paytm Homepage Clone** project (Days
 
 ## Next Steps
 
-After completing these projects, consider:
-- Exploring **JavaScript** for interactivity
-- Learning **Responsive Design** with media queries
-- Studying **CSS Frameworks** like Bootstrap or Tailwind
-- Building projects with **Backend Integration**
-- Practicing **UX/UI Design Principles**
+## Next Steps
+
+After mastering these fundamentals, the journey continues with:
+- **Advanced JavaScript:** Functions, Objects, and Arrays
+- **DOM Manipulation:** Interacting with page elements
+- **Asynchronous JS:** API integration and Fetch
+- **Modern Frameworks:** Diving into React.js or Next.js
+- **Project Building:** Creating a full-scale JS-driven application
 
 ## Feedback & Reflection
 

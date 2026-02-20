@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 85-86 | Mastering Functions & Closures</title>
+    <link rel="stylesheet" href="../Day_80/dashboard.css">
+    <style>
+        .mastery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .mastery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mastery-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .mastery-card:hover {
+            border-color: var(--accent-primary);
+            background: rgba(124, 77, 255, 0.05);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-secondary);
+            margin-bottom: 10px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../index.html" class="nav-btn">
+        <span>←</span> Back to Dashboard
+    </a>
+
+    <div class="dashboard">
+        <header class="header">
+            <span class="badge">Day 85-86</span>
+            <h1>Mastering Functions</h1>
+            <p style="color: var(--text-muted)">From Foundations to Powerful Closures</p>
+        </header>
+
+        <div class="mastery-grid">
+            <div class="mastery-card">
+                <span class="section-label">Foundation</span>
+                <h3>🏗️ Architecture</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Declarations, Expressions, and Arrow syntax.
+                </p>
+            </div>
+            <div class="mastery-card">
+                <span class="section-label">Lexical</span>
+                <h3>🔋 IIFE & Hoisting</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Self-executing logic and declaration lifting.
+                </p>
+            </div>
+            <div class="mastery-card">
+                <span class="section-label">Advanced</span>
+                <h3>🚀 Parameters</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Default values and Dynamic Rest operators.</p>
+            </div>
+            <div class="mastery-card">
+                <span class="section-label">Advanced</span>
+                <h3>🔒 Closures</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Data privacy through lexical scoping.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>🌩️ Closure Dynamic State</h3>
+            <p style="font-size: 0.85rem; margin-bottom: 10px;">Monitoring memory persistence and variable updates.</p>
+            <div id="state-area"
+                style="font-family: monospace; color: var(--accent-secondary); font-size: 1.1rem; border-left: 3px solid var(--accent-primary); padding-left: 15px; margin-top: 10px;">
+            </div>
+        </div>
+
+        <div class="split-view">
+            <div class="code-vault">
+                <div class="code-header">
+                    <span style="font-size: 0.8rem; color: var(--accent-primary)">function_mastery.js</span>
+                    <div class="dot green"></div>
+                </div>
+                <pre class="code-body">console.log("Day 85 & 86: Mastering Functions & Closures");
+
+// Part 1: Foundation (Day 85)
+function greet(name) {
+    console.log("Hello, " + name + "! (Hoisted)");
+}
+greet("Sairam");
+
+const add = (a, b) => a + b;
+console.log("ES6 Arrow Result:", add(10, 20));
+
+(function() {
+    console.log("IIFE: Private scope initialized.");
+})();
+
+// Part 2: Advanced Logic (Day 86)
+function setupProfile(name = "Guest", ...roles) {
+    console.log(`User: ${name} | Roles: ${roles.join(", ")}`);
+}
+setupProfile("Sairam", "Admin", "Developer");
+
+function createCounter(name) {
+    let count = 0;
+    return function() {
+        count++;
+        console.log(`[${name}] Value: ${count}`);
+    };
+}
+const counter = createCounter("Functions Master");
+counter();
+counter();
+
+console.log("Mastery evaluation complete.");</pre>
+            </div>
+
+            <div class="card" style="margin-top: 0;">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="font-size: 0.8rem; margin-left: 10px; color: var(--text-muted)">terminal.js</span>
+                </div>
+                <div class="terminal-body" id="terminal"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const originalLog = console.log;
+
+        console.log = function (...args) {
+            originalLog.apply(console, args);
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+
+            const message = args.join(' ');
+            // Monitor closure updates
+            if (message.includes('[') && message.includes(']')) {
+                const stateArea = document.getElementById('state-area');
+                const stateLine = document.createElement('div');
+                stateLine.style.marginBottom = "5px";
+                stateLine.innerHTML = `<span style="color: var(--accent-primary)">⚡</span> Persistent State: <span style="color: #fff">${message}</span>`;
+
+                // Keep only last 2 entries to keep it clean like private lab
+                if (stateArea.children.length >= 2) stateArea.removeChild(stateArea.firstChild);
+                stateArea.appendChild(stateLine);
+            }
+
+            entry.innerHTML = `<span class="log-prefix">❯</span> ${message}`;
+            terminal.appendChild(entry);
+        };
+    </script>
+    <script src="logic.js"></script>
+</body>
+
+</html>

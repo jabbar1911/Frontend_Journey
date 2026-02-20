@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 83 | BOM & Logic Hub</title>
+    <link rel="stylesheet" href="../Day_80/dashboard.css">
+    <style>
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .btn-action {
+            background: rgba(124, 77, 255, 0.1);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .btn-action:hover {
+            border-color: var(--accent-primary);
+            background: rgba(124, 77, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .logic-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(0, 229, 255, 0.1);
+            color: var(--accent-secondary);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../index.html" class="nav-btn">
+        <span>←</span> Back to Dashboard
+    </a>
+
+    <div class="dashboard">
+        <header class="header">
+            <span class="badge">Day 83</span>
+            <h1>BOM & logic Hub</h1>
+            <p style="color: var(--text-muted)">Mastering Browser Interaction & Flow Control</p>
+        </header>
+
+        <div class="card">
+            <h3>⚡ Browser Object Model (BOM)</h3>
+            <p style="margin-bottom: 15px;">Experience direct communication with the browser window.</p>
+            <div class="grid-3">
+                <div class="btn-action" onclick="runAlert()">🔔 Launch Alert</div>
+                <div class="btn-action" onclick="runConfirm()">❓ Check Confirm</div>
+                <div class="btn-action" onclick="runPrompt()">⌨️ Get Prompt</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>🧮 The Operator Toolbox</h3>
+            <div style="margin-top: 10px;">
+                <span class="logic-tag">Arithmetic (+, -, *, /)</span>
+                <span class="logic-tag">Assignment (+=, -=)</span>
+                <span class="logic-tag">Comparison (===, !==)</span>
+                <span class="logic-tag">Logical (&&, ||, !)</span>
+            </div>
+        </div>
+
+        <div class="split-view">
+            <div class="code-vault">
+                <div class="code-header">
+                    <span style="font-size: 0.8rem; color: var(--accent-primary)">logic_hub.js</span>
+                    <div class="dot green"></div>
+                </div>
+                <pre class="code-body">console.log("Day 83: Browser Objects & Logic Lab");
+
+// 1. Arithmetic Operators
+let x = 10;
+let y = 3;
+console.log("Addition (10 + 3):", x + y);
+console.log("Exponent (10 ** 3):", x ** y);
+
+// 2. Assignment Operators
+let score = 50;
+score += 10;
+console.log("Updated score:", score);
+
+// 3. Comparison Operators
+console.log("Strict Equality (5 === '5'):", 5 === '5');
+
+// 4. Logical Operators
+let isAdult = true;
+let hasPass = true;
+console.log("Can enter?", isAdult && hasPass);
+
+// 5. Conditional Logic (Weather AI)
+function checkWeather(temp) {
+    console.log("Analyzing Temperature:", temp + "°C");
+    if (temp > 35) {
+        console.log("Result: It's very hot!");
+    } else if (temp >= 20) {
+        console.log("Result: Normal weather.");
+    } else {
+        console.log("Result: It's cold outside.");
+    }
+}
+checkWeather(40);
+checkWeather(22);
+
+// 6. BOM Controls
+// runAlert(), runConfirm(), runPrompt()</pre>
+            </div>
+
+            <div class="card" style="margin-top: 0;">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="font-size: 0.8rem; margin-left: 10px; color: var(--text-muted)">terminal.js</span>
+                </div>
+                <div class="terminal-body" id="terminal"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const originalLog = console.log;
+        console.log = function (...args) {
+            originalLog.apply(console, args);
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `<span class="log-prefix">❯</span> ${args.join(' ')}`;
+            terminal.appendChild(entry);
+        };
+    </script>
+    <script src="logic.js"></script>
+</body>
+
+</html>

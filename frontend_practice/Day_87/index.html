@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 87 | Array Mastery Dashboard</title>
+    <link rel="stylesheet" href="../Day_80/dashboard.css">
+    <style>
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .method-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .method-card:hover {
+            border-color: var(--accent-secondary);
+            background: rgba(0, 229, 255, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--accent-primary);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../index.html" class="nav-btn">
+        <span>←</span> Back to Dashboard
+    </a>
+
+    <div class="dashboard">
+        <header class="header">
+            <span class="badge">Day 87</span>
+            <h1>Array Mastery</h1>
+            <p style="color: var(--text-muted)">Manipulating Lists, Sets, and Spread Operations</p>
+        </header>
+
+        <div class="method-grid">
+            <div class="method-card">
+                <span class="tag">Foundation</span>
+                <h4 style="margin-top: 5px;">Pop & Push</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Managing the end of lists.</p>
+            </div>
+            <div class="method-card">
+                <span class="tag">Foundation</span>
+                <h4 style="margin-top: 5px;">Shift & Unshift</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Managing the beginning of lists.</p>
+            </div>
+            <div class="method-card" style="border-color: var(--accent-primary)">
+                <span class="tag">Modern JS</span>
+                <h4 style="margin-top: 5px;">Spread (...)</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Cloning and merging with ease.</p>
+            </div>
+            <div class="method-card" style="border-color: var(--accent-secondary)">
+                <span class="tag">Optimization</span>
+                <h4 style="margin-top: 5px;">Set Logic</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Ultimate de-duplication strategy.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>⚡ Array Intelligence</h3>
+            <p style="font-size: 0.85rem;">Observe real-time data manipulation in the split-view lab below.</p>
+        </div>
+
+        <div class="split-view">
+            <div class="code-vault">
+                <div class="code-header">
+                    <span style="font-size: 0.8rem; color: var(--accent-primary)">array_logic.js</span>
+                    <div class="dot green"></div>
+                </div>
+                <pre class="code-body">console.log("Day 87: Array Mastery");
+
+// 1. Basic Operations
+let fruits = ["Apple", "Banana", "Mango"];
+console.log("Initial Array:", fruits);
+console.log("Length:", fruits.length);
+
+// 2. Add/Remove
+fruits.push("Orange"); // Add end
+fruits.unshift("Grape"); // Add start
+fruits.splice(1, 1, "Watermelon"); // Replace
+console.log("Modified Fruits:", fruits);
+
+// 3. Sorting & Joining
+let cities = ["Hyderabad", "New York", "London"];
+console.log("Joined:", cities.sort().join(" | "));
+
+// 4. Spread & Sets
+let n1 = [1, 2, 2, 3];
+let unique = [...new Set(n1)];
+console.log("Unique List:", unique);
+
+console.log("Array mastery module complete.");</pre>
+            </div>
+
+            <div class="card" style="margin-top: 0;">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="font-size: 0.8rem; margin-left: 10px; color: var(--text-muted)">terminal.js</span>
+                </div>
+                <div class="terminal-body" id="terminal"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const originalLog = console.log;
+
+        console.log = function (...args) {
+            originalLog.apply(console, args);
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+
+            // Format array and object output for terminal
+            const formattedArgs = args.map(arg => {
+                if (Array.isArray(arg)) return `[${arg.join(', ')}]`;
+                if (typeof arg === 'object' && arg !== null) return JSON.stringify(arg);
+                return arg;
+            });
+
+            entry.innerHTML = `<span class="log-prefix">❯</span> ${formattedArgs.join(' ')}`;
+            terminal.appendChild(entry);
+        };
+    </script>
+    <script src="logic.js"></script>
+</body>
+
+</html>

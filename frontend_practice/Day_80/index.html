@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 80 | JS Cinematic Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <a href="../../index.html" class="nav-btn">
+        <span>←</span> Back to Dashboard
+    </a>
+    <div class="dashboard">
+        <div class="header">
+            <span class="badge">Day 80</span>
+            <h1>JavaScript Ignition</h1>
+            <p style="color: var(--text-muted)">The Heart of Web Interactivity</p>
+        </div>
+
+        <div class="card">
+            <h3>🚀 Mission Briefing</h3>
+            <p>Today I officially began my journey into JavaScript, moving from static design to dynamic behavior. This
+                dashboard demonstrates the bridge between code and console.</p>
+        </div>
+
+        <div class="split-view">
+            <div class="code-vault">
+                <div class="code-header">
+                    <span style="font-size: 0.8rem; color: var(--accent-primary)">one.js</span>
+                    <div class="dot green"></div>
+                </div>
+                <pre class="code-body">console.log("External JS file (one.js) is linked!");
+var b = 20;
+console.log("Value of b is:", b);
+console.log("Sum of a + b is:", (a + b));
+console.log("Day 80 completed!");</pre>
+            </div>
+
+            <div class="card" style="margin-top: 0;">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span
+                        style="font-size: 0.8rem; margin-left: 10px; color: var(--text-muted)">interactive_console.js</span>
+                </div>
+                <div class="terminal-body" id="terminal"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const originalLog = console.log;
+        console.log = function (...args) {
+            originalLog.apply(console, args);
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `<span class="log-prefix">❯</span> ${args.join(' ')}`;
+            terminal.appendChild(entry);
+        };
+    </script>
+    <script src="one.js"></script>
+</body>
+
+</html>

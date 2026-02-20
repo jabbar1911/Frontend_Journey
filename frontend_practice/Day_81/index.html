@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 81 | JS Variables Dashboard</title>
+    <link rel="stylesheet" href="../Day_80/dashboard.css">
+    <style>
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .var-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .var-name {
+            font-weight: 700;
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+        }
+
+        .var-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../index.html" class="nav-btn">
+        <span>←</span> Back to Dashboard
+    </a>
+    <div class="dashboard">
+        <div class="header">
+            <span class="badge">Day 81</span>
+            <h1>The Variable Battle</h1>
+            <p style="color: var(--text-muted)">var vs let vs const — Scoping & Data Integrity</p>
+        </div>
+
+        <div class="card">
+            <h3>⚔️ Scoping Breakdown</h3>
+            <div class="comparison-grid">
+                <div class="var-card">
+                    <div class="var-name">var</div>
+                    <div class="var-desc">Functional scope. Allows redeclaration. The "Classic" way.</div>
+                </div>
+                <div class="var-card" style="border-color: var(--accent-primary)">
+                    <div class="var-name">let</div>
+                    <div class="var-desc">Block scope. No redeclaration. The "Modern" choice.</div>
+                </div>
+                <div class="var-card" style="border-color: var(--accent-secondary)">
+                    <div class="var-name">const</div>
+                    <div class="var-desc">Block scope. Absolute fixed value. The "Secure" choice.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>🌩️ The Temporal Dead Zone (TDZ)</h3>
+            <p>Unlike `var`, which is hoisted with `undefined`, `let` and `const` are in a "Dead Zone" until their
+                declaration is reached.</p>
+        </div>
+
+        <div class="card">
+            <h3>👥 Variable Shadowing</h3>
+            <p>Shadowing occurs when a variable declared in an inner scope has the same name as a variable in an outer
+                scope.</p>
+        </div>
+
+        <div class="split-view">
+            <div class="code-vault">
+                <div class="code-header">
+                    <span style="font-size: 0.8rem; color: var(--accent-primary)">variable_battle.js</span>
+                    <div class="dot green"></div>
+                </div>
+                <pre class="code-body">console.log("Day 81: Var, Let, and Const Basics");
+
+// 1. Redeclaration & Reassignment
+var user = "Sairam";
+var user = "Sairam Uppugundla"; // Redeclaring with var
+console.log("var can be redeclared:", user);
+
+let age = 20;
+age = 21; // Reassigning let
+console.log("let can be changed to:", age);
+
+const project = "Frontend Journey";
+console.log("const is fixed:", project);
+
+// 2. Hoisting & TDZ
+console.log("Checking Hoisting...");
+try {
+    console.log(laterVar);
+} catch(e) {
+    console.log("TDZ Error: Cannot use 'let' before it's defined.");
+}
+let laterVar = "Now I am defined!";
+
+// 3. Block Scope vs Function Scope
+if(true) {
+    var globalLeak = "I leak out of the block!";
+    let blockSecure = "I stay inside the block.";
+    console.log("Inside block: Processing...");
+}
+console.log("var outside block:", globalLeak);
+
+console.log("Day 81 completed! Simple and clear.");</pre>
+            </div>
+
+            <div class="card" style="margin-top: 0;">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="font-size: 0.8rem; margin-left: 10px; color: var(--text-muted)">terminal.js</span>
+                </div>
+                <div class="terminal-body" id="terminal"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const originalLog = console.log;
+        console.log = function (...args) {
+            originalLog.apply(console, args);
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `<span class="log-prefix">❯</span> ${args.join(' ')}`;
+            terminal.appendChild(entry);
+        };
+
+        console.log("Day 81: Var, Let, and Const Basics");
+
+        // 1. Redeclaration & Reassignment
+        var user = "Sairam";
+        var user = "Sairam Uppugundla"; // Redeclaring with var
+        console.log("var can be redeclared:", user);
+
+        let age = 20;
+        age = 21; // Reassigning let
+        console.log("let can be changed to:", age);
+
+        const project = "Frontend Journey";
+        console.log("const is fixed:", project);
+
+        // 2. Hoisting & TDZ
+        console.log("Checking Hoisting...");
+        try {
+            console.log(laterVar);
+        } catch (e) {
+            console.log("TDZ Error: Cannot use 'let' before it's defined.");
+        }
+        let laterVar = "Now I am defined!";
+
+        // 3. Block Scope vs Function Scope
+        if (true) {
+            var globalLeak = "I leak out of the block!";
+            let blockSecure = "I stay inside the block.";
+            console.log("Inside block: Processing...");
+        }
+        console.log("var outside block:", globalLeak);
+
+        console.log("Day 81 completed! Simple and clear.");
+    </script>
+</body>
+
+</html>
